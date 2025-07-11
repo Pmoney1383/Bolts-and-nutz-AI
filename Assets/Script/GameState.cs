@@ -27,9 +27,9 @@ public class GameState : MonoBehaviour
        if (Input.GetKeyDown(KeyCode.T))
         {
 
-            setGameState("XXXX|XXXX|1222|6036|6726|7310|5417|5407|5443|5310", getState());
+           // setGameState("XXXX|XXXX|1222|6036|6726|7310|5417|5407|5443|5310", getState());
 
-           // setGameState("222X|XXXX|1XXX|2222|2222|2222|2222|2222|2111|2222", getState());
+            setGameState("222X|XXXX|1XXX|2222|2222|2222|2222|2222|2111|2222", getState());
            // Debug.Log(SerializeState(getState()));
         }
        if (Input.GetKeyDown(KeyCode.Y))

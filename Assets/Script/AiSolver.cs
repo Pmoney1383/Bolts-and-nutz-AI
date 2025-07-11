@@ -19,7 +19,6 @@ public class AiSolver : MonoBehaviour
     public List<string> path = new List<string>();
     public bool GoalReached = false;
     public bool RootReached = false;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +33,47 @@ public class AiSolver : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.R))
         {
-
+            StartCoroutine(UpdateText());
              StartCoroutine(GetAllPossibleStateLight());
             //  StartCoroutine(GetAllPossibleState());
             //  Debug.Log(GameState.SerializeState(gameNodes[gameNodes.Count - 1].State));
         }
-    }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (path.Count > 0)
+            {
+                StartCoroutine(ShowHowToSolve());
 
+            }
+            
+
+        }
+    }
+    public IEnumerator UpdateText()
+    {
+        string text = "";
+
+        UI gameUI = GameObject.Find("Canvas").GetComponent<UI>();  
+        gameUI.SetText (text);
+        while (!GoalReached)
+        {
+            text = "solving this make take a few minutes";
+            gameUI.SetText(text);
+            yield return new WaitForSeconds(1);
+            text = "solving this make take a few minutes .";
+            gameUI.SetText(text);
+            yield return new WaitForSeconds(1);
+            text = "solving this make take a few minutes ..";
+            gameUI.SetText(text);
+            yield return new WaitForSeconds(1);
+            text = "solving this make take a few minutes ...";
+            gameUI.SetText(text);
+            yield return new WaitForSeconds(1);
+
+        }
+        text = "";
+        gameUI.SetText(text);
+    }
     public IEnumerator GetAllPossibleState ()
     {
         HashSet<string> visited = new HashSet<string>();
@@ -168,24 +201,7 @@ public class AiSolver : MonoBehaviour
         Debug.Log("total state added" + gameNodes.Count);
         FindPath();
     }
-    public void TestNode ()
-    {
-
-        for (int i = gameNodes.Count - 1; i >= 0; i--)
-        {
-            if (GameState.IsGoaLstate(gameNodes[i].state))
-            {
-
-                GoalState = gameNodes[i];
-
-            }
-        }
-
-        Debug.Log(GoalState.state);
-        Debug.Log(GoalState.previousstate);
-
-
-    }
+    
     public void FindPath()
     {
         // Step 1: Find the goal state
@@ -229,7 +245,68 @@ public class AiSolver : MonoBehaviour
         }
     }
 
+   public  IEnumerator  ShowHowToSolve()
+    {
 
+        bool allSolved = false;
+        int index = 0;
+        int maxIndex = path.Count;
+
+
+        GameState.setGameState(path[0], GameState.getState());
+
+        yield return null;
+    
+        while (!allSolved)
+        {
+
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if (index < maxIndex -1)
+                {
+                    index++;
+                    GameState.setGameState(path[index], GameState.getState());
+                    
+                    yield return null;
+
+                } else
+                {
+
+
+                    Debug.LogWarning("no more state exist");
+
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if (0 < index)
+                {
+                    index--;
+                    GameState.setGameState(path[index], GameState.getState());
+                    
+                    yield return null;
+
+                } else
+                {
+
+                    Debug.LogWarning("root state reached");
+
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Backspace)) {
+                Debug.Log("the solver reached the end");
+                allSolved = true;
+            }
+
+
+            yield return null;
+        }
+
+
+
+
+    }
 
 
 }
