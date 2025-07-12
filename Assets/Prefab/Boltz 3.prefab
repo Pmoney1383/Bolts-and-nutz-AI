@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6185007234374248281}
   - component: {fileID: 4119720424780905521}
   - component: {fileID: 6136964931123291909}
-  - component: {fileID: 2785885561523358200}
   m_Layer: 0
   m_Name: Stand
   m_TagString: Untagged
@@ -84,28 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2785885561523358200
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 989343407409744291}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &3090299162722249448
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4163405293120708965}
+  - component: {fileID: 3308061177091686968}
+  - component: {fileID: 746343415696121578}
   m_Layer: 0
   m_Name: Boltz 3
   m_TagString: Untagged
@@ -139,6 +118,43 @@ Transform:
   - {fileID: 8056240069947307296}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3308061177091686968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090299162722249448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec353ecf5bfe044cbba1ae918f1413c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TopNutz: {fileID: 0}
+  maxCapacity: 3
+  availableSpace: 0
+  numOfNut: 0
+--- !u!65 &746343415696121578
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090299162722249448}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.23, y: 6.08, z: 5.29}
+  m_Center: {x: 0, y: 4.12, z: 0}
 --- !u!1 &7880515741888851953
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +166,6 @@ GameObject:
   - component: {fileID: 8056240069947307296}
   - component: {fileID: 7933504746945054109}
   - component: {fileID: 3051755853174730905}
-  - component: {fileID: 3803860668576057846}
   m_Layer: 0
   m_Name: pipe
   m_TagString: Untagged
@@ -223,26 +238,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3803860668576057846
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7880515741888851953}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

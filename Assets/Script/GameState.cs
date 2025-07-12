@@ -17,27 +17,29 @@ public class GameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Nutcolors = this.gameObject.GetComponent<GameSetup>().NutzColor;
+       
         
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.T))
+        Nutcolors = this.gameObject.GetComponent<GameSetup>().NutzColor;
+        if (Input.GetKeyDown(KeyCode.T))
         {
 
-           // setGameState("XXXX|XXXX|1222|6036|6726|7310|5417|5407|5443|5310", getState());
-
-            setGameState("222X|XXXX|1XXX|2222|2222|2222|2222|2222|2111|2222", getState());
-           // Debug.Log(SerializeState(getState()));
+            // setGameState("XXXXXXXX|XXXXXXXX|01020202|06000306|06070206|07030100|05040107|05040007|05040403|05030100", getState());
+               setGameState("1001050100|0909040208|1212120902|1106070810|1108031107|0209090303|0606040000|0405070803|0710020812|0504110611|XXXXXXXXXX|XXXXXXXXXX|0101020612|0104101007|0000050305", getState());
+            // setGameState("020202XX|XXXXXXXX|01XXXXXX|02020202|02020202|02020202|02020202|02020202|02010101|02020202", getState());
+            // Debug.Log(SerializeState(getState()));
         }
        if (Input.GetKeyDown(KeyCode.Y))
         {
 
-
-            AllNextStateFromCurrentLight(SerializeState(getState()));
-           // AllNextStateFromCurrent(getState());
+            Debug.Log(SerializeState(getState()));
+            // AllNextStateFromCurrentLight(SerializeState(getState()));
+            // AllNextStateFromCurrent(getState());
+            //  Debug.Log(IsGoaLstate(getState()));
         }
 
     }
@@ -91,46 +93,45 @@ public class GameState : MonoBehaviour
 
     public void setGameState(string hash, List<List<GameObject>> currentGameState)
     {
-
-
         string[] boltStrings = hash.Split('|');
+
         for (int boltIndex = 0; boltIndex < boltStrings.Length; boltIndex++)
         {
-
             string boltData = boltStrings[boltIndex];
             if (boltIndex >= currentGameState.Count) break;
 
             List<GameObject> bolt = currentGameState[boltIndex];
 
-            for (int nutIndex = 0; nutIndex < boltData.Length; nutIndex++)
+            for (int nutIndex = 0; nutIndex < boltData.Length; nutIndex += 2) // increment by 2
             {
-                char c = boltData[nutIndex];
-                if (c == 'X')
-                {
+                string code = boltData.Substring(nutIndex, 2); // take 2 chars
 
-                    GameObject.Destroy(bolt[nutIndex]);
+                int actualNutIndex = nutIndex / 2; // because 2 chars per nut
+
+                if (code == "XX")
+                {
+                    GameObject.Destroy(bolt[actualNutIndex]);
                     continue;
-
                 }
-                int colorIndex = int.Parse(c.ToString());
+
+                int colorIndex = int.Parse(code);
                 Color nutColor = Nutcolors[colorIndex];
-                if (bolt[nutIndex] != null)
+
+                if (bolt[actualNutIndex] != null)
                 {
-                    bolt[nutIndex].GetComponentInChildren<Renderer>().material.color = nutColor;
+                    bolt[actualNutIndex].GetComponentInChildren<Renderer>().material.color = nutColor;
                 }
                 else
                 {
-                    Vector3 pos = gameSetup.BoltzList[gameSetup.BoltzList.Count - boltIndex - 1].transform.position + new Vector3(0, 4.17f + nutIndex * gameSetup.nutzHeight, 0);
+                    Vector3 pos = gameSetup.BoltzList[gameSetup.BoltzList.Count - boltIndex - 1].transform.position + new Vector3(0, 4.17f + actualNutIndex * gameSetup.nutzHeight, 0);
                     GameObject nut = Instantiate(nutz, pos, Quaternion.identity);
                     nut.GetComponentInChildren<Renderer>().material.color = nutColor;
                     nut.transform.SetParent(gameSetup.BoltzList[gameSetup.BoltzList.Count - boltIndex - 1].transform);
-
                 }
             }
         }
-
-
     }
+
 
 
     public bool IsGoaLstate(string state)
@@ -146,16 +147,16 @@ public class GameState : MonoBehaviour
             }
 
 
-            char targetColor = bolt[0];
-
-            foreach (var nut in bolt)
-            {
-                if (nut == 'X')
+            
+            string targetColor = bolt.Substring(0, 2);
+            for (int i = 0; i < bolt.Length; i+=2) {
+                string nutCode = bolt.Substring(i, 2);
+                if (nutCode == "XX")
                 {
                     return false;
                 }
-                char nutcolor = nut;
-                if (nutcolor != targetColor)
+                
+                if (nutCode != targetColor)
                 {
                     return false;
                 }
@@ -266,19 +267,20 @@ public class GameState : MonoBehaviour
             {
                 if (from == to) continue;
 
-                char targetTopNut = 'X';
+                string targetTopNut = "XX";
                 int availableSpace = 0;
 
                 // Find top nut and space for target bolt
-                for (int i = boltStrings[to].Length - 1; i >= 0; i--)
+                for (int i = boltStrings[to].Length - 2; i >= 0; i-= 2)
                 {
-                    if (boltStrings[to][i] != 'X')
+                    string nut = boltStrings[to].Substring(i, 2);
+                    if (nut != "XX")
                     {
-                        targetTopNut = boltStrings[to][i];
+                        targetTopNut = nut;
                         break;
                     }
                 }
-                availableSpace = boltStrings[to].Count(n => n == 'X');
+                availableSpace = boltStrings[to].Count(n => n == 'X') /2;
 
                 if (ValidMoveLight(nutsToMove, targetTopNut, availableSpace))
                 {
@@ -298,7 +300,7 @@ public class GameState : MonoBehaviour
                     boltStringsNew[to] = boltTo;
 
                     string finalState = string.Join("|", boltStringsNew);
-
+                   // Debug.Log(finalState);
                    // Debug.Log(finalState);
                     nextStates.Add(finalState);
 
@@ -335,16 +337,20 @@ public class GameState : MonoBehaviour
             return false;
 
         // Get the color of the first nut
-        char targetColor = bolt[0];
+        string targetColor = bolt.Substring(0, 2);
+        
 
         // Check if all nuts have the same color
-        foreach (var nut in bolt)
+        for (int i = 0; i < bolt.Length; i+= 2)
         {
+            string nut = bolt.Substring (i, 2);
             if (nut != targetColor)
             {
                 return false;
             }
+
         }
+       
 
         return true;
     }
@@ -361,13 +367,14 @@ public class GameState : MonoBehaviour
                 if (nut == null)
                 {
 
-                    result += "X";
+                    result += "XX";
 
                 }else
                 {
 
                     Color color = nut.GetComponentInChildren<Renderer>().material.color;
-                    result += ColorToCode(color);
+                    result += ColorToCode(color).PadLeft(2, '0');
+
 
 
                 }
@@ -417,22 +424,26 @@ public class GameState : MonoBehaviour
 
         return result;
     }
-    public string ColorToCode (Color C)
+    public string ColorToCode(Color c)
     {
-
         for (int i = 0; i < Nutcolors.Count; i++)
         {
-
-            if (C == Nutcolors[i])
+            if (ColorsAreEqual(c, Nutcolors[i]))
             {
-
                 return i.ToString();
-
             }
+        }
 
-        } 
         return "?";
     }
+
+    private bool ColorsAreEqual(Color a, Color b, float tolerance = 0.01f)
+    {
+        return Mathf.Abs(a.r - b.r) < tolerance &&
+               Mathf.Abs(a.g - b.g) < tolerance &&
+               Mathf.Abs(a.b - b.b) < tolerance;
+    }
+
 
 
     private List<GameObject> GetTopSameColorBlock(List<GameObject> bolt)
@@ -474,24 +485,25 @@ public class GameState : MonoBehaviour
         string block = "";
 
         // Start from the top (end of the list)
-        for (int i = bolt.Length - 1; i >= 0; i--)
+        for (int i = bolt.Length - 2; i >= 0; i-=2)
         {
-            if (bolt[i] == 'X')
+            string nutCode = bolt.Substring(i, 2);
+            if (nutCode == "XX")
                 continue;
 
             if (block.Length == 0)
             {
-                block += bolt[i];
+                block += nutCode;
             }
             else
             {
 
-                char currentColor = bolt[i];
-                char topColor = block[0];
+                string currentColor = nutCode;
+                string topColor = block.Substring(0,2);
 
                 if (currentColor == topColor)
                 {
-                    block +=bolt[i];
+                    block +=nutCode;
                 }
                 else
                 {
@@ -501,6 +513,7 @@ public class GameState : MonoBehaviour
         }
 
         block.Reverse(); // Optional: keeps order from bottom to top
+       // Debug.Log(block + "to select");
         return block;
     }
 
@@ -542,27 +555,28 @@ public class GameState : MonoBehaviour
     private string RemoveTopNutBlockLight(ref string bolt)
     {
         string block = "";
-        char? topColor = 'X';
+        string? topColor = "XX";
 
-        for (int i = bolt.Length - 1; i >= 0; i--)
+        for (int i = bolt.Length - 2; i >= 0; i-=2)
         {
-            if (bolt[i] == 'X') continue;
+            string currentColor = bolt.Substring(i, 2);
+            if (currentColor == "XX") continue;
 
-            char currentColor = bolt[i];
-            if (topColor == 'X')
+           // char currentColor = bolt[i];
+            if (topColor == "XX")
             {
                 topColor = currentColor;
                 block = currentColor + block;
-                bolt = bolt.Substring(0, i) + 'X' + bolt.Substring(i + 1);
+                bolt = bolt.Substring(0, i) + "XX" + bolt.Substring(i + 2);
             }
             else if (currentColor == topColor)
             {
                 block = currentColor + block;
-                bolt = bolt.Substring(0, i) + 'X' + bolt.Substring(i + 1);
+                bolt = bolt.Substring(0, i) + "XX" + bolt.Substring(i + 2);
             }
             else break;
         }
-
+        //Debug.Log(block + " to remove");
         return block;
     }
 
@@ -583,16 +597,19 @@ public class GameState : MonoBehaviour
     private string AddNutBlockToBoltLight(string bolt, string nuts)
     {
         int index = 0;
-        char[] chars = bolt.ToCharArray();
-        for (int i = 0; i < chars.Length && index < nuts.Length; i++)
+        //char[] chars = bolt.ToCharArray();
+        for (int i = 0; i <= bolt.Length -2 && index <= nuts.Length -2 ; i+=2)
         {
-            if (chars[i] == 'X')
+            string CurrentNut = bolt.Substring(i, 2);
+            if (CurrentNut == "XX")
             {
-                chars[i] = nuts[index];
-                index++;
+                string nutToAdd = nuts.Substring(index, 2);
+               bolt = bolt.Substring(0,i) + nutToAdd + bolt.Substring (i+2);
+                index+= 2;
             }
         }
-        return new string(chars);
+       // Debug.Log(bolt);
+        return bolt;
     }
 
 
@@ -652,36 +669,37 @@ public class GameState : MonoBehaviour
         return selectedColor == targetColor;
     }
 
-    public bool ValidMoveLight(string selectedNuts, char targetTopNut, int availableSpace)
+    public bool ValidMoveLight(string selectedNuts, string targetTopNut, int availableSpace)
     {
 
         if (selectedNuts == null || selectedNuts.Length == 0)
             return false;
 
-        if (availableSpace < selectedNuts.Length)
+        if (availableSpace < selectedNuts.Length /2)
             return false;
 
-        if (targetTopNut == 'X')
+        if (targetTopNut == "XX")
         {
 
             return true;
         }
 
-        char selectedColor = selectedNuts[0];
-        char targetColor = targetTopNut;
+        string selectedColor = selectedNuts.Substring(0,2);
+        string targetColor = targetTopNut;
 
         return selectedColor == targetColor;
     }
 
     public List<GameObject> EachBolt(Boltz bolt) {
-
+        int size = bolt.maxCapacity;
         List<GameObject> list = new List<GameObject>();
         if (bolt.TopNutz == null)
         {
-            list.Add(null);
-            list.Add(null);
-            list.Add(null);
-            list.Add(null);
+            for (int i = 0; i < size; i++)
+            {
+                list.Add(null);
+                
+            }
             return list;
         }
         foreach (Transform child in bolt.gameObject.transform)
@@ -696,7 +714,7 @@ public class GameState : MonoBehaviour
 
         for (int i = 0; i < list.Count; i++)
         {
-            if (list.Count < 4)
+            if (list.Count < size)
             {
                 list.Add(null);
                 

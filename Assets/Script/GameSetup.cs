@@ -7,7 +7,9 @@ using UnityEngine.UIElements;
 
 public class GameSetup : MonoBehaviour
 {
-    public GameObject Boltz;
+    public GameObject Boltz3;
+    public GameObject Boltz4;
+    public GameObject Boltz5;
     public GameObject Nutz;
     public GameObject NutTab;
     public List<Color> NutzColor;
@@ -15,6 +17,7 @@ public class GameSetup : MonoBehaviour
     public List<GameObject> BoltzList;
     public List<GameObject> NutzList;
     public List<Vector3> BoltzPositionList;
+    public Dropdown selectSize;
     public float nutzHeight = 2.62f;
     public int numOfNutz = 4;
     public int NutzCount = 0;
@@ -46,6 +49,10 @@ public class GameSetup : MonoBehaviour
         
         NutzColor = new List<Color> { Color.red, Color.yellow, Color.blue, RGB(255, 124, 237), RGB(255, 134, 0), RGB(102, 54, 0), RGB(0, 101, 1), RGB(0, 197, 255), RGB(202, 223, 218), RGB(140, 0, 130), RGB(159, 210, 21), RGB(62, 0, 149), RGB(0, 69, 64) };
         NutTab.SetActive(false);
+        selectSize.ClearOptions();
+        List<string> SizeOptions = new List<string>() { "3", "4", "5" };
+        selectSize.AddOptions(SizeOptions);
+        selectSize.value = 1;
 
     }
 
@@ -106,6 +113,108 @@ public class GameSetup : MonoBehaviour
 
     }
 
+    public void ChooseSizeBolt ()
+    {
+
+        int size =  int.Parse(selectSize.options[selectSize.value].text);
+        
+
+        if (size == 3)
+        {
+
+            foreach (GameObject bolt in BoltzList)
+            {
+
+                GameObject.Destroy(bolt);
+
+
+
+            }
+
+            for (int i =0; i < BoltzPositionList.Count; i++)
+            {
+
+                GameObject newBolt = Instantiate(Boltz3, BoltzPositionList[i], Quaternion.identity);
+                if (newBolt.GetComponent<Boltz>() == null)
+                {
+                    newBolt.AddComponent<Boltz>();
+                }
+                newBolt.GetComponent<Boltz>().maxCapacity = 3;
+                newBolt.name = Boltz3.name + " spawn:" + i;
+                newBolt.tag = "Nut";
+                BoltzList[i] = newBolt;
+
+
+
+            }
+            
+
+        }
+        if (size == 4)
+        {
+
+            foreach (GameObject bolt in BoltzList)
+            {
+
+                GameObject.Destroy(bolt);
+
+
+
+            }
+
+            for (int i = 0; i < BoltzPositionList.Count; i++)
+            {
+
+                GameObject newBolt = Instantiate(Boltz4, BoltzPositionList[i], Quaternion.identity);
+                if (newBolt.GetComponent<Boltz>() == null)
+                {
+                    newBolt.AddComponent<Boltz>();
+                }
+                newBolt.GetComponent<Boltz>().maxCapacity = 4;
+                newBolt.name = Boltz4.name + " spawn:" + i;
+                newBolt.tag = "Nut";
+                BoltzList[i] = newBolt;
+
+
+
+            }
+
+
+        }
+        if (size == 5)
+        {
+
+            foreach (GameObject bolt in BoltzList)
+            {
+
+                GameObject.Destroy(bolt);
+
+
+
+            }
+
+            for (int i = 0; i < BoltzPositionList.Count; i++)
+            {
+
+                GameObject newBolt = Instantiate(Boltz5, BoltzPositionList[i], Quaternion.identity);
+                if (newBolt.GetComponent<Boltz>() == null)
+                {
+                    newBolt.AddComponent<Boltz>();
+                }
+                newBolt.GetComponent<Boltz>().maxCapacity = 5;
+                newBolt.name = Boltz5.name + " spawn:" + i;
+                newBolt.tag = "Nut";
+                BoltzList[i] = newBolt;
+
+
+
+            }
+
+
+        }
+        CloseNutTab();
+    }
+
     public void OpenNutTab()
     {
        
@@ -124,27 +233,27 @@ public class GameSetup : MonoBehaviour
         if (BoltIndex < 5)
         {
             
-            GameObject SpawnedBolts = Instantiate(Boltz, new Vector3(BoltIndex * 10, 0, 0), Quaternion.identity);
+            GameObject SpawnedBolts = Instantiate(Boltz4, new Vector3(BoltIndex * 10, 0, 0), Quaternion.identity);
             BoltzList.Add(SpawnedBolts);
-            SpawnedBolts.name = Boltz.name + " spawn:" + BoltIndex;
+            SpawnedBolts.name = Boltz4.name + " spawn:" + BoltIndex;
             BoltzPositionList.Add(SpawnedBolts.transform.position);
             
         }
         if (BoltIndex < 10 && BoltIndex >= 5)
         {
             
-            GameObject SpawnedBolts = Instantiate(Boltz, new Vector3((BoltIndex -5) * 10, 25, 0), Quaternion.identity);
+            GameObject SpawnedBolts = Instantiate(Boltz4, new Vector3((BoltIndex -5) * 10, 25, 0), Quaternion.identity);
             BoltzList.Add(SpawnedBolts);
-            SpawnedBolts.name = Boltz.name + " spawn:" + BoltIndex;
+            SpawnedBolts.name = Boltz4.name + " spawn:" + BoltIndex;
             BoltzPositionList.Add(SpawnedBolts.transform.position);
             
         }
         if (BoltIndex < 15 && BoltIndex >= 10)
         {
             
-            GameObject SpawnedBolts = Instantiate(Boltz, new Vector3((BoltIndex -10) * 10, 50, 0), Quaternion.identity);
+            GameObject SpawnedBolts = Instantiate(Boltz4, new Vector3((BoltIndex -10) * 10, 50, 0), Quaternion.identity);
             BoltzList.Add(SpawnedBolts);
-            SpawnedBolts.name = Boltz.name + " spawn:" + BoltIndex;
+            SpawnedBolts.name = Boltz4.name + " spawn:" + BoltIndex;
             BoltzPositionList.Add(SpawnedBolts.transform.position);
             
         }
@@ -183,7 +292,7 @@ public class GameSetup : MonoBehaviour
         {
             if (i <= 4)
             {
-                GameObject spawnedBoltz = Instantiate(Boltz, new Vector3(i * 10, 0, 0), Quaternion.identity);
+                GameObject spawnedBoltz = Instantiate(Boltz4, new Vector3(i * 10, 0, 0), Quaternion.identity);
 
                 BoltzList.Add(spawnedBoltz);
                 BoltzPositionList.Add(BoltzList[i].transform.position);
@@ -222,12 +331,12 @@ public class GameSetup : MonoBehaviour
                     NutzCount++;
                     NutzList[NutzCount - 1].name = Nutz.name + " spawn:" + NutzCount;
                 }
-                BoltzList[i].name = Boltz.name + " spawn:" + i;
+                BoltzList[i].name = Boltz4.name + " spawn:" + i;
             }
             else
             {
 
-                GameObject spawnedBoltz = Instantiate(Boltz, new Vector3((i - 5) * 10, 25, 0), Quaternion.identity);
+                GameObject spawnedBoltz = Instantiate(Boltz4, new Vector3((i - 5) * 10, 25, 0), Quaternion.identity);
                 BoltzList.Add(spawnedBoltz);
                 BoltzPositionList.Add(BoltzList[i].transform.position);
                 for (int x = 0; x < numOfNutz; x++)
@@ -268,7 +377,7 @@ public class GameSetup : MonoBehaviour
                         NutzList[NutzCount - 1].name = Nutz.name + " spawn:" + NutzCount;
                     }
                 }
-                BoltzList[i].name = Boltz.name + " spawn:" + i;
+                BoltzList[i].name = Boltz4.name + " spawn:" + i;
             }
         }
 

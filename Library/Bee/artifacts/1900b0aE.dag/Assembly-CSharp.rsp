@@ -362,6 +362,7 @@
 "Assets/Script/GameNode.cs"
 "Assets/Script/GameSetup.cs"
 "Assets/Script/GameState.cs"
+"Assets/Script/Heuristic.cs"
 "Assets/Script/NutMoverAnim.cs"
 "Assets/Script/NutSelectorAnim.cs"
 "Assets/Script/PlayerMovement.cs"

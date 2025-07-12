@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\amirp\\Bolts and nutz AI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|c:\\users\\amirp\\bolts and nutz ai\\assets\\script\\gamesetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|C:\\Users\\amirp\\Bolts and nutz AI\\assets\\script\\aisolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\aisolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|C:\\Users\\amirp\\Bolts and nutz AI\\assets\\script\\gamenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|c:\\users\\amirp\\bolts and nutz ai\\assets\\script\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|C:\\Users\\amirp\\Bolts and nutz AI\\assets\\script\\gamesetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamesetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|C:\\Users\\amirp\\Bolts and nutz AI\\assets\\script\\boltz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\boltz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|C:\\Users\\amirp\\Bolts and nutz AI\\assets\\script\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|C:\\Users\\amirp\\Bolts and nutz AI\\assets\\script\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,14 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|C:\\Users\\amirp\\Bolts and nutz AI\\assets\\script\\ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|C:\\Users\\amirp\\Bolts and nutz AI\\assets\\script\\aisolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\aisolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|C:\\Users\\amirp\\Bolts and nutz AI\\assets\\script\\gamenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{943E9AA5-1AE4-5D29-73B4-BD6E2E119C41}|Assembly-CSharp.csproj|C:\\Users\\amirp\\Bolts and nutz AI\\assets\\script\\nutselectoranim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,11 +46,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "UI.cs",
               "DocumentMoniker": "C:\\Users\\amirp\\Bolts and nutz AI\\Assets\\Script\\UI.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\UI.cs",
@@ -62,7 +62,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "GameNode.cs",
               "DocumentMoniker": "C:\\Users\\amirp\\Bolts and nutz AI\\Assets\\Script\\GameNode.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\GameNode.cs",
@@ -70,7 +70,8 @@
               "RelativeToolTip": "Assets\\Script\\GameNode.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T05:24:07.07Z"
+              "WhenOpened": "2025-07-09T05:24:07.07Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -80,22 +81,23 @@
               "RelativeDocumentMoniker": "Assets\\Script\\GameState.cs",
               "ToolTip": "C:\\Users\\amirp\\Bolts and nutz AI\\Assets\\Script\\GameState.cs",
               "RelativeToolTip": "Assets\\Script\\GameState.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAowAsAAAAgAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAADBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-08T04:56:37.392Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "AiSolver.cs",
               "DocumentMoniker": "C:\\Users\\amirp\\Bolts and nutz AI\\Assets\\Script\\AiSolver.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\AiSolver.cs",
               "ToolTip": "C:\\Users\\amirp\\Bolts and nutz AI\\Assets\\Script\\AiSolver.cs",
               "RelativeToolTip": "Assets\\Script\\AiSolver.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAowDUAAAAZAAAA",
+              "ViewState": "AQIAAKQAAAAAAAAAAAAuwL0AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T03:40:20.151Z"
+              "WhenOpened": "2025-07-08T03:40:20.151Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -123,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Boltz.cs",
               "DocumentMoniker": "C:\\Users\\amirp\\Bolts and nutz AI\\Assets\\Script\\Boltz.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Boltz.cs",
@@ -131,12 +133,11 @@
               "RelativeToolTip": "Assets\\Script\\Boltz.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwB8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T06:56:28.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-07T06:56:28.884Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "PlayerMovement.cs",
               "DocumentMoniker": "C:\\Users\\amirp\\Bolts and nutz AI\\Assets\\Script\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\PlayerMovement.cs",
@@ -144,21 +145,19 @@
               "RelativeToolTip": "Assets\\Script\\PlayerMovement.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAD4vyMAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T06:38:32.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-07T06:38:32.927Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "GameSetup.cs",
               "DocumentMoniker": "C:\\Users\\amirp\\Bolts and nutz AI\\Assets\\Script\\GameSetup.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\GameSetup.cs",
               "ToolTip": "C:\\Users\\amirp\\Bolts and nutz AI\\Assets\\Script\\GameSetup.cs",
               "RelativeToolTip": "Assets\\Script\\GameSetup.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAAcwGgAAAAVAAAA",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAgwDEAAAD/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T06:18:40.016Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-07T06:18:40.016Z"
             }
           ]
         }

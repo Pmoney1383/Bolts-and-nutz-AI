@@ -66,6 +66,7 @@
     <Compile Include="Assets\Script\GameNode.cs" />
     <Compile Include="Assets\Script\NutSelectorAnim.cs" />
     <Compile Include="Assets\Script\AiSolver.cs" />
+    <Compile Include="Assets\Script\Heuristic.cs" />
     <Compile Include="Assets\Script\NutMoverAnim.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
     <Compile Include="Assets\Script\UI.cs" />

@@ -147,7 +147,7 @@ public class AiSolver : MonoBehaviour
         visited.Add(GameState.SerializeState(RootgameState));
         
         int safetyCounter = 0;
-        int maxIterations = 1000000;
+        int maxIterations = 100000000;
 
         while (queueLight.Count > 0 && safetyCounter < maxIterations && !GoalReached)
         {
@@ -189,7 +189,7 @@ public class AiSolver : MonoBehaviour
             // Let Unity breathe every 500 iterations
             if (safetyCounter % 500 == 0)
             {
-                Debug.Log(safetyCounter);
+               // Debug.Log(safetyCounter);
                 
                 GameState.setGameState(currentGameState, GameState.getState());
                 Resources.UnloadUnusedAssets();
