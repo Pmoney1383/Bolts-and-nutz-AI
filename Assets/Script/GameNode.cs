@@ -9,18 +9,19 @@ public class GameNode
     public List<List<GameObject>> previousState;
     public string state;
     public string previousstate;
-    public int MoveFrom;
-    public int MoveTo;
+    public float gScore;
+    public float hScore;
+    public float fScore => gScore + hScore;
 
 
 
-    public GameNode(List<List<GameObject>> state, List<List<GameObject>> previousState, int moveFrom, int moveTo)
+    public GameNode(List<List<GameObject>> state, List<List<GameObject>> previousState, float gScore, float hScore)
     {
 
         State = state;
         this.previousState = previousState;
-        MoveFrom = moveFrom;
-        MoveTo = moveTo;
+        this.gScore = gScore;
+        this.hScore = hScore;
     }
     public GameNode(List<List<GameObject>> state, List<List<GameObject>> previousState)
     {
@@ -29,13 +30,13 @@ public class GameNode
         this.previousState = previousState;
         
     }
-    public GameNode(string state, string previousState, int moveFrom, int moveTo)
+    public GameNode(string state, string previousState, float gScore, float hScore)
     {
 
         this.state = state;
         this.previousstate = previousState;
-        MoveFrom = moveFrom;
-        MoveTo = moveTo;
+        this.gScore = gScore;
+        this.hScore = hScore;
     }
     public GameNode(string state, string previousState)
     {

@@ -87,7 +87,7 @@ public class GameSetup : MonoBehaviour
         
         GameObject bolt = GameObject.Find(NutTab.transform.Find("Which Bolts Text").GetComponent<TextMeshProUGUI>().text);
         int maximumSpace = bolt.GetComponent<Boltz>().maxCapacity;
-        Debug.Log(maximumSpace);
+       
         if (nutIndex < maximumSpace)
         {
             GameObject nut = Instantiate(Nutz, new Vector3(bolt.transform.position.x, bolt.transform.position.y + 4.17f + (nutIndex * nutzHeight), bolt.transform.position.z), Quaternion.identity);

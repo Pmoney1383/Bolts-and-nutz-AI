@@ -367,6 +367,9 @@
 "Assets/Script/NutSelectorAnim.cs"
 "Assets/Script/PlayerMovement.cs"
 "Assets/Script/UI.cs"
+"Assets/ThirdParty/AmyElliott/PriorityQueue/Scripts/Demo/Cube.cs"
+"Assets/ThirdParty/AmyElliott/PriorityQueue/Scripts/Demo/PriorityQueueDemo.cs"
+"Assets/ThirdParty/AmyElliott/PriorityQueue/Scripts/PriorityQueue.cs"
 -langversion:9.0
 /deterministic
 /optimize+

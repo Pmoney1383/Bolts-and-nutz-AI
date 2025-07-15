@@ -61,12 +61,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Boltz.cs" />
+    <Compile Include="Assets\ThirdParty\AmyElliott\PriorityQueue\Scripts\Demo\Cube.cs" />
     <Compile Include="Assets\Script\GameState.cs" />
     <Compile Include="Assets\Script\GameSetup.cs" />
+    <Compile Include="Assets\ThirdParty\AmyElliott\PriorityQueue\Scripts\PriorityQueue.cs" />
     <Compile Include="Assets\Script\GameNode.cs" />
     <Compile Include="Assets\Script\NutSelectorAnim.cs" />
     <Compile Include="Assets\Script\AiSolver.cs" />
     <Compile Include="Assets\Script\Heuristic.cs" />
+    <Compile Include="Assets\ThirdParty\AmyElliott\PriorityQueue\Scripts\Demo\PriorityQueueDemo.cs" />
     <Compile Include="Assets\Script\NutMoverAnim.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
     <Compile Include="Assets\Script\UI.cs" />
