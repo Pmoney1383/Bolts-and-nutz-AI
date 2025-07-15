@@ -24,6 +24,7 @@ public class GameSetup : MonoBehaviour
     public int BoltIndex = 0;
     public int nutIndex = 0;
     public bool SetupFinished = false;
+    public UI GameUi;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +78,8 @@ public class GameSetup : MonoBehaviour
                     }
                     OpenNutTab();
                     NutTab.transform.Find("Which Bolts Text").GetComponent<TextMeshProUGUI>().text = hit.collider.name;
+                    int whichBolt = int.Parse (hit.collider.name.Substring(14)) + 1;
+                    GameUi.SetText("editing boltz " + whichBolt);
                 }
             }
         
@@ -117,7 +120,7 @@ public class GameSetup : MonoBehaviour
     {
 
         int size =  int.Parse(selectSize.options[selectSize.value].text);
-        
+        GameUi.SetText("Click on bolt to edit nuts");
 
         if (size == 3)
         {

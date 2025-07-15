@@ -20,6 +20,7 @@ public class AiSolver : MonoBehaviour
     public List<GameNode> gameNodes = new List<GameNode>();
     public GameNode GoalState;
     public List<string> path = new List<string>();
+    public UI gameUi;
     public bool GoalReached = false;
     public bool RootReached = false;
     // Start is called before the first frame update
@@ -53,6 +54,25 @@ public class AiSolver : MonoBehaviour
             
 
         }
+    }
+    public void showButton()
+    {
+
+        if (path.Count > 0)
+        {
+            StartCoroutine(ShowHowToSolve());
+
+        }
+        gameUi.SetText("use the arrow to see the next or previous step");
+
+    }
+    public void solveButton()
+    {
+
+        StartCoroutine(UpdateText());
+        StartCoroutine(GetAllPossibleStateLightHueristic());
+        gameUi.SetSolveButton(false);
+
     }
     public IEnumerator UpdateText()
     {
@@ -344,8 +364,9 @@ public class AiSolver : MonoBehaviour
             current = node.previousstate;
 
         }
+        gameUi.SetShowButton(true);
     }
-
+    
    public  IEnumerator  ShowHowToSolve()
     {
 
